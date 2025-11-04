@@ -1,33 +1,45 @@
+// Library imports
+import React from 'react';
 import { auth0 } from '@/lib/auth0';
+import { redirect } from 'next/navigation';
+
+// Hooks imports
+
+// Styles imports
+import styles from './home.module.scss';
+
+// Components imports
 import LoginButton from './components/auth/LoginButton';
-import LogoutButton from './components/auth/LogoutButton';
-import Account from './components/dashboard/settings/account/Account';
+
+// Context imports
 
 export default async function Home() {
 	const session = await auth0.getSession();
 	const user = session?.user;
 
-	return (
-		<div className='app-container'>
-			<div className='main-card-wrapper'>
-				<h1 className='main-title'>Next.js + Auth0</h1>
+	if (user) {
+		redirect('/dashboard');
+	}
 
-				<div className='action-card'>
-					{user ? (
-						<div className='logged-in-section'>
-							<p className='logged-in-message'>✅ Successfully logged in!</p>
-							<Account />
-							<LogoutButton />
-						</div>
-					) : (
-						<>
-							<p className='action-text'>
-								Welcome! Please log in to access your protected content.
-							</p>
-							<LoginButton />
-						</>
-					)}
-				</div>
+	return (
+		<div className='home-container' role='main' aria-label='Login page'>
+			<div className='main-card-wrapper'>
+				<section
+					className='action-card'
+					aria-labelledby='login-heading'
+					role='region'
+				>
+					<div className={styles['login-container']}>
+						<h1
+							className='action-text'
+							id='login-heading'
+							aria-label='Welcome message and login prompt'
+						>
+							Welcome! Please log in to access your protected content.
+						</h1>
+						<LoginButton />
+					</div>
+				</section>
 			</div>
 		</div>
 	);

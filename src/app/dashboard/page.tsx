@@ -1,0 +1,51 @@
+// Library imports
+import React from 'react';
+
+// Hooks imports
+
+// Styles imports
+import styles from './dashboard.module.scss';
+
+// Components imports
+import LogoutButton from '../components/auth/LogoutButton';
+import Account from '../components/dashboard/settings/account/Account';
+
+// Context imports
+
+const Dashboard = () => {
+	return (
+		<div
+			className={styles.dashboardHome}
+			role='region'
+			aria-labelledby='dashboard-title'
+		>
+			<section
+				className={styles.welcomeSection}
+				aria-labelledby='dashboard-title'
+				role='region'
+			>
+				<h1 className={styles.welcomeTitle} id='dashboard-title'>
+					Dashboard Overview
+				</h1>
+				<p
+					className={styles.welcomeSubtitle}
+					aria-describedby='dashboard-title'
+				>
+					Welcome to your application follow-up management center
+				</p>
+			</section>
+
+			<section
+				className={styles.quickActions}
+				aria-labelledby='quick-actions-title'
+				role='region'
+			>
+				<h2 className={styles.sectionTitle} id='quick-actions-title'>
+					Quick Actions
+				</h2>
+			</section>
+		</div>
+	);
+};
+
+export default Dashboard;

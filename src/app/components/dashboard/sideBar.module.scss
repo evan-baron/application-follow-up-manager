@@ -1,0 +1,47 @@
+.sideBar {
+	width: 16.25rem;
+	background: var(--background-secondary);
+	border-right: 0.0625rem solid var(--border-light);
+	box-shadow: var(--shadow-sm);
+	overflow-y: auto;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 0.1875rem;
+		background: var(--gradient-secondary);
+		opacity: 0.6;
+	}
+
+	.navigation {
+		padding: 1.5rem 0;
+
+		.navList {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				margin: 0.25rem 0;
+			}
+		}
+	}
+}
+
+// Responsive design
+@media (max-width: 768px) {
+	.sideBar {
+		width: 12.5rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.sideBar {
+		width: 100%;
+		height: auto;
+	}
+}

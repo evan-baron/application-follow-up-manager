@@ -3,8 +3,10 @@ import { Auth0Provider } from '@auth0/nextjs-auth0';
 import './globals.css';
 
 export const metadata: Metadata = {
-	title: 'Auth0 Next.js App',
-	description: 'Next.js app with Auth0 authentication',
+	title:
+		'Application Follow-up Manager - Automate Your Job Application Follow-ups',
+	description:
+		'A comprehensive application follow-up management system to automate follow-up emails, track responses, and manage your job search communications.',
 };
 
 export default function RootLayout({
@@ -15,7 +17,12 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body>
-				<Auth0Provider>{children}</Auth0Provider>
+				<Auth0Provider>
+					<div id='root' role='application'>
+						{children}
+					</div>
+					<div id='modal-root' aria-live='polite' aria-atomic='true'></div>
+				</Auth0Provider>
 			</body>
 		</html>
 	);
