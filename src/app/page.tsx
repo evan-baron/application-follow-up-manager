@@ -31,7 +31,6 @@ export default async function Home() {
 				>
 					<div className={styles['login-container']}>
 						<h1
-							className='action-text'
 							id='login-heading'
 							aria-label='Welcome message and login prompt'
 						>
